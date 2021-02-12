@@ -21,5 +21,6 @@ def get_prices_dataframe(symbols, from_date=None, to_date=None):
 
     data = yf.download(symbols,from_date,to_date)
     dataframe =  pd.DataFrame(data['Adj Close'])
+    dataframe = dataframe.fillna(0)
     return dataframe
 
